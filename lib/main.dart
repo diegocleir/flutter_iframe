@@ -8,7 +8,7 @@ import 'dart:convert';
 void main() {
   runApp(MaterialApp(
     home: Home(),
-    //debugShowCheckedModeBanner: false,
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -34,16 +34,16 @@ class _HomeState extends State<Home> {
         var jsonResposta = json.decode(resposta);
         if(jsonResposta['success']) {
           setState(() {
-            _wvcontroller?.loadUrl(urlAtual);
+            _wvcontroller?.loadUrl(jsonResposta['comando']);
           });
         } else {
           setState(() {
-            _wvcontroller?.loadUrl("https://www.tratofeito.net");
+            _wvcontroller?.loadUrl(jsonResposta['comando']);
           });
         }
       });
     } catch(e){
-
+      _wvcontroller?.loadUrl("https://www.tratofeito.net");
     }
   }
 
@@ -65,8 +65,8 @@ class _HomeState extends State<Home> {
         child: Stack(
           children: [
             WebView(
-              zoomEnabled: true,
-              allowsInlineMediaPlayback: true,
+              //zoomEnabled: true,
+              //allowsInlineMediaPlayback: true,
               initialUrl: urlAtual,
               javascriptMode: JavascriptMode.unrestricted,
               onPageStarted: (url) {

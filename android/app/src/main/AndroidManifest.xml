@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diegocleir.iframe">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="iframe"
+        android:label="SALVE O MUNDO EM PT - FORTNITE - STW"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
